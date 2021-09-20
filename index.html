@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title></title>
+</head>
+<body>
+	<h2>EL MEJOR PRESIDNETE QUE HA TENIDO PANAMA. NADIE COBRA BONO SI NO SUDA. 
+	¿CONSIDERA QUE ESO ES CIERTO?</h2>
+	<div align="center">
+		<img src="resources/salchicho.jpg" height="50%" width="300px" style="width: 351px; "/>
+		<h2>Dejanos Tus comentarios</h2>
+	<form action="">
+		<input id="newUserField" name="user" value="" type="text" placeholder="escribe tu nick"/> 
+		<input id="newUserButton" onclick="join();" value="Entrar" type="button"/>
+		
+		<br/><br/>
+		<textarea id="chatRoomField" rows="10" cols="100" readonly="readonly" disabled="disabled"></textarea>
+		
+		<br/>
+		<br/><br/>
+		<input id="sendField" name="message" value="" type="text" disabled="disabled"/>
+		<input id="sendButton" onclick="send_message();" value="Enviar" type="button" disabled="disabled"/>
+	</form>
+	</div>
+
+	<script type="text/javascript" src="resources/websocket.js">
+	</script>
+</body>
+</html>
