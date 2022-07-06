@@ -1,0 +1,335 @@
+/*$menu-min-width: 580px;
+$menu-zindex: 100;
+$menu-font-size: 12px;
+$menu-text-transform: uppercase;
+
+$menu-height: 35px;
+$menu-padding-left: 10px;
+$menu-padding-right: 10px;
+
+$menu-bgcolor : black;
+$menu-color : #f4f4f4;
+$menu-li-bgcolor: #333;
+$menu-li-bgcolor-hover: #666;
+$menu-li-min-width: 60px;
+$menu-arrow-color: white;
+
+//items
+$items-height: 30px;
+$items-shadow:  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$items-bgcolor: #eee;
+$items-color: #444;
+$items-border: 0px solid #333;
+$items-radius: 0px;
+$items-bgcolor-hover: pink;
+$items-border-bottom: 1px solid #ddd;
+
+$items-padding-left: 20px;
+$items-padding-right: 20px;
+
+$items-min-width : 200px;
+$items-white-space: nowrap; //normal | nowrap
+
+$items-arrow-color: #333;
+
+
+//MOBILE VERSION
+$m-menu-height: 60px;
+$m-menu-padding-left: 10px;
+$m-menu-padding-right: 10px;
+$m-menu-border-bottom: 1px solid #eee;
+$m-menu-color : #444;
+
+$m-menu-li-bgcolor : #ddd;
+$m-menu-li-color : #333;
+
+
+$m-items-height: 40px;
+
+$m-items-padding-left: 20px;
+$m-items-padding-right: 20px;
+
+$m-items-padding-left-level2: 40px;
+$m-items-padding-left-level3: 60px;
+$m-items-padding-left-level4: 80px;
+
+$m-items-bgcolor: pink;
+$m-items-bgcolor-level2: #80c9eb;
+$m-items-bgcolor-level3: #9acfe8;
+$m-items-bgcolor-level4: #a9cfe1;
+$m-items-border-bottom: 1px dotted white;*/
+#menu {
+    margin: 0 auto;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    z-index: 100;
+    position: relative;
+    height: 50px; }
+  
+  /*inicializar*/
+  #menu ul, #menu ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #f4f4f4; }
+  
+  #menu ul a {
+    text-decoration: none;
+    color: #f4f4f4; }
+  
+  #menu > ul {
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    position: relative; }
+  
+  #menu > ul > li {
+    display: inline-block;
+    text-align: left;
+    line-height: 50px;
+    cursor: pointer;
+    background-color: #333;
+    padding: 0;
+    width: auto;
+    min-width: 60px;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease; }
+  
+  /*ALINEACION*/
+  #menu > ul.center {
+    text-align: center; }
+  
+  #menu > ul > li.left {
+    float: left; }
+  
+  #menu > ul > li.right {
+    float: right; }
+  
+  @media (max-width: 580px) {
+    #menu > ul {
+      width: 80%; }
+  
+    #menu > ul > li {
+      width: 100%;
+      display: inline-table;
+      border-bottom: 1px dotted white;
+      background-color: #015781; }
+  
+    #menu > ul > li > span, #menu > ul > li > a {
+      padding: 0 10px 0 10px; }
+  
+    #menu ul li, #menu ul a {
+      color: #f4f4f4; } }
+  @media (min-width: 580px) {
+    #menu {
+      height: 40px; }
+  
+    #menu > ul > li {
+      line-height: 40px;
+      padding: 0 15px 0 15px; }
+  
+    #menu ul > li.iconselect {
+      padding-right: 18px; }
+  
+    #menu > ul > li:hover {
+      background-color: #111; }
+  
+    #menu > ul > li.iconselect {
+      padding-left: 10px; } }
+  /*COLORES DEL MENU*/
+  #menu ul > li ul {
+    background-color: #2577bb;
+    min-width: 200px;
+    white-space: nowrap; }
+  
+  #menu ul > li ul {
+    padding: 0;
+    margin: 0;
+    color: white; }
+  
+  #menu ul > li ul > li, #menu ul > li ul > li a {
+    color: white; }
+  
+  #menu ul > li ul > li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-bottom: 1px dotted white;
+    line-height: 25px; }
+  
+  /*SEGUNDO NIVEL*/
+  #menu > ul > li > ul {
+    position: absolute;
+    width: auto; }
+  
+  #menu > ul > li ul > li {
+    position: relative;
+    width: 100%; }
+  
+  /*TERCER Y MAS NIVELES*/
+  #menu > ul > li > ul > li ul {
+    position: absolute;
+    left: 100%;
+    top: 0; }
+  
+  @media (max-width: 580px) {
+    #menu > ul > li ul {
+      position: relative !important;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition-property: max-height;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-out; }
+  
+    #menu > ul > li ul * {
+      padding: 0;
+      margin: 0; }
+  
+    #menu > ul > li ul.show, #menu > ul > li ul.showback {
+      position: relative;
+      z-index: 2;
+      max-height: 800px; }
+  
+    /*SEGUNDO NIVEL*/
+    #menu > ul > li > ul {
+      top: 0; }
+  
+    /*TERCER Y MAS NIVELES*/
+    #menu > ul > li > ul > li ul {
+      left: 0%; }
+  
+    #menu ul > li ul > li > span, #menu ul > li ul > li > a {
+      padding: 0 10px 0 10px; }
+  
+    #menu ul > li > ul {
+      background-color: #2486b3; }
+  
+    #menu ul > li > ul > li > ul {
+      background-color: #80c9eb; }
+  
+    #menu ul > li > ul > li > ul > li > ul {
+      background-color: #9acfe8; }
+  
+    #menu ul > li > ul > li > ul > li > ul > li > ul {
+      background-color: #a9cfe1; }
+  
+    #menu ul > li ul > li {
+      line-height: 50px;
+      border-bottom: 1px dotted white; }
+  
+    #menu ul > li > ul > li > ul > li span, #menu ul > li > ul > li > ul > li a {
+      padding-left: 40px; }
+  
+    #menu ul > li > ul > li > ul > li > ul > li span, #menu ul > li > ul > li > ul > li > ul > li a {
+      padding-left: 60px; }
+  
+    #menu ul > li > ul > li > ul > li > ul > li > ul > li span, #menu ul > li > ul > li > ul > li > ul > li > ul > li a {
+      padding-left: 80px; }
+  
+    #menu ul > li ul > li:last-child {
+      border-bottom: none; }
+  
+    #menu ul > li ul, #menu ul > li ul > li a {
+      color: white; } }
+  @media (min-width: 580px) {
+    #menu ul > li ul {
+      transition-property: transform,opacity,visibility;
+      transition-duration: 0.25s;
+      transition-timing-function: ease-out;
+      transform: translateY(-100%);
+      visibility: hidden;
+      display: none;
+      opacity: 0;
+      z-index: -1;
+      position: absolute;
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      border: none;
+      border-radius: 0;
+      box-sizing: border-box; }
+  
+    #menu > ul > li ul.show, #menu > ul > li ul.showback {
+      transition-property: transform,opacity;
+      transition-duration: 0.25s;
+      transition-timing-function: ease-out;
+      transform: translateY(0px);
+      visibility: visible;
+      opacity: 1;
+      display: block; }
+  
+    #menu ul > li ul > li {
+      padding: 0 20px 0 20px;
+      transition: background-color 0.25s ease-out; }
+  
+    #menu ul > li ul > li:last-child {
+      border-bottom: none; }
+  
+    #menu > ul > li ul.showback {
+      background-color: #1d5c90; }
+  
+    #menu > ul > li ul.showback > li:hover, #menu > ul > li ul.showback > li.selected {
+      background-color: #003751; }
+  
+    #menu ul > li ul > li:hover {
+      background-color: #006c9d; }
+  
+    #menu ul > li > ul > li > ul {
+      z-index: 1; }
+  
+    #menu ul > li > ul > li > ul > li > ul {
+      z-index: 2; }
+  
+    #menu ul > li > ul > li > ul > li > ul > li > ul {
+      z-index: 3; } }
+  #menu ul > li.iconselect {
+    position: relative; }
+  
+  #menu > ul > li.iconselect:before {
+    right: 4px;
+    top: 23px; }
+  
+  #menu > ul > li ul > li.iconselect:before {
+    right: 4px;
+    top: 10.5px; }
+  
+  #menu ul > li.iconselect:before {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    width: 8px;
+    height: 4px;
+    border-top: solid 4px white;
+    border-left: solid 4px transparent;
+    border-right: solid 4px transparent; }
+  
+  #menu > ul > li ul > li.iconselect:before {
+    border-top: solid 4px white; }
+  
+  @media (max-width: 580px) {
+    #menu > ul > li ul > li.iconselect:before {
+      top: 23px; }
+  
+    #menu > ul li:not(.selected).iconselect:before {
+      border-left: solid 4px white;
+      border-bottom: solid 4px transparent;
+      border-top: solid 4px transparent; } }
+  @media (min-width: 580px) {
+    #menu > ul > li.iconselect:before {
+      top: 18px; } }
+  
+  /*# sourceMappingURL=menu.css.map */
+  
